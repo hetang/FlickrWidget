@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerHorizontal="false"
+    android:alpha="0.8"
+    android:background="@drawable/widget_background">
+    <RelativeLayout
+        android:id="@+id/rlContentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rlTitle">
+
+            <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                style="@style/AppTheme.textStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="20dp"
+                android:background="@drawable/circle_textview"
+                android:minWidth="30dp"
+                android:maxWidth="70dp"
+                android:padding="5dp"
+                android:textSize="10sp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dip"
+            android:background="@drawable/widget_title_background"
+            android:alpha="0.8"
+            android:layout_alignBottom="@+id/rlTitle">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/AppTheme.textStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="false"
+                android:textSize="10sp"
+                android:text="Item of the Day" />
+
+            <TextView
+                android:id="@+id/tvItemTitle"
+                style="@style/AppTheme.textStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="false"
+                android:layout_below="@+id/title"
+                android:maxLines="2" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rlEmptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <!-- Empty view is show if list items are empty -->
+        <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/empty_string"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorPrimaryText"
+            android:padding="10dp"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

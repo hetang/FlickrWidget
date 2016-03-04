@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">InstagramWidget</string>
+    <string name="empty_string">Looks like nothing to show you today. Check back tomorrow.</string>
+</resources>
