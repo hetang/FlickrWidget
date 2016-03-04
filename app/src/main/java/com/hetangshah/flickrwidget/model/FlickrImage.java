@@ -1,9 +1,9 @@
-package com.hetangshah.instagramwidget.model;
+package com.hetangshah.flickrwidget.model;
 
 /**
  * Created by hetashah on 2/20/16.
  */
-public class InstagramImage {
+public class FlickrImage {
     String id;
     Caption caption;
     Images images;

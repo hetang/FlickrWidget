@@ -1,4 +1,4 @@
-package com.hetangshah.instagramwidget.api;
+package com.hetangshah.flickrwidget.api;
 
 import org.apache.commons.lang3.StringUtils;
 

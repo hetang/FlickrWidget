@@ -1,4 +1,4 @@
-package com.hetangshah.instagramwidget;
+package com.hetangshah.flickrwidget;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

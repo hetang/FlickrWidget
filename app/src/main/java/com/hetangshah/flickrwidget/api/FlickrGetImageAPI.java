@@ -1,9 +1,9 @@
-package com.hetangshah.instagramwidget.api;
+package com.hetangshah.flickrwidget.api;
 
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.hetangshah.instagramwidget.model.InstagramImageList;
+import com.hetangshah.flickrwidget.model.FlickrImageList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -12,9 +12,9 @@ import okhttp3.Response;
 /**
  * Created by hetashah on 2/19/16.
  */
-public class InstagramGetImageAPI extends APIDetails<InstagramImageList> {
+public class FlickrGetImageAPI extends APIDetails<FlickrImageList> {
 
-    public InstagramGetImageAPI() {
+    public FlickrGetImageAPI() {
     }
 
     private String getURL() {
@@ -22,10 +22,10 @@ public class InstagramGetImageAPI extends APIDetails<InstagramImageList> {
     }
 
     @Override
-    public InstagramImageList execute() {
+    public FlickrImageList execute() {
         OkHttpClient client = new OkHttpClient();
         Gson gson = new Gson();
-        InstagramImageList instagramImageModel = null;
+        FlickrImageList instagramImageModel = null;
         try {
 
             request = new Request.Builder()
@@ -35,11 +35,11 @@ public class InstagramGetImageAPI extends APIDetails<InstagramImageList> {
 
             Response response = client.newCall(request).execute();
             String responseStr = response.body().string();
-            Log.d("InstagramGetImageAPI", "Response = " + responseStr);
-            instagramImageModel = gson.fromJson(responseStr, InstagramImageList.class);
+            Log.d("FlickrGetImageAPI", "Response = " + responseStr);
+            instagramImageModel = gson.fromJson(responseStr, FlickrImageList.class);
 
         } catch (Exception e) {
-            Log.e("InstagramGetImageAPI", "execute method", e);
+            Log.e("FlickrGetImageAPI", "execute method", e);
         }
 
         return instagramImageModel;

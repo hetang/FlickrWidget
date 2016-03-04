@@ -1,13 +1,13 @@
-package com.hetangshah.instagramwidget.model;
+package com.hetangshah.flickrwidget.model;
 
 import java.util.List;
 
 /**
  * Created by hetashah on 2/23/16.
  */
-public class InstagramImageList {
+public class FlickrImageList {
     Meta meta;
-    List<InstagramImage> data;
+    List<FlickrImage> data;
 
     public Meta getMeta() {
         return meta;
@@ -17,11 +17,11 @@ public class InstagramImageList {
         this.meta = meta;
     }
 
-    public List<InstagramImage> getData() {
+    public List<FlickrImage> getData() {
         return data;
     }
 
-    public void setData(List<InstagramImage> data) {
+    public void setData(List<FlickrImage> data) {
         this.data = data;
     }
 

@@ -1,6 +1,6 @@
-package com.hetangshah.instagramwidget.api;
+package com.hetangshah.flickrwidget.api;
 
-import com.hetangshah.instagramwidget.BuildConfig;
+import com.hetangshah.flickrwidget.BuildConfig;
 
 /**
  * Created by hetang on 1/31/16.

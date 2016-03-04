@@ -1,4 +1,4 @@
-package com.hetangshah.instagramwidget.widget;
+package com.hetangshah.flickrwidget.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -12,7 +12,7 @@ import java.util.Random;
 /**
  * Implementation of App Widget functionality.
  */
-public class InstagramAppWidgetProvider extends AppWidgetProvider {
+public class FlickrAppWidgetProvider extends AppWidgetProvider {
     public static final String ACTION_UPDATE = "com.ebay.napp.widget.UPDATE";
     private static Random random = new Random();
 
@@ -26,7 +26,7 @@ public class InstagramAppWidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
-        context.startService(new Intent(context,InstagramWidgetIntentService.class));
+        context.startService(new Intent(context,FlickrWidgetIntentService.class));
     }
 
     @Override

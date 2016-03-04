@@ -1,4 +1,4 @@
-package com.hetangshah.instagramwidget;
+package com.hetangshah.flickrwidget;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.hetangshah.instagramwidget.widget;
+package com.hetangshah.flickrwidget.widget;
 
 import android.app.IntentService;
 import android.app.PendingIntent;
@@ -12,43 +12,43 @@ import android.widget.RemoteViews;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.AppWidgetTarget;
-import com.hetangshah.instagramwidget.InstagramActivity;
-import com.hetangshah.instagramwidget.R;
-import com.hetangshah.instagramwidget.api.InstagramGetImageAPI;
-import com.hetangshah.instagramwidget.model.InstagramImage;
-import com.hetangshah.instagramwidget.model.InstagramImageList;
+import com.hetangshah.flickrwidget.FlickrActivity;
+import com.hetangshah.flickrwidget.R;
+import com.hetangshah.flickrwidget.api.FlickrGetImageAPI;
+import com.hetangshah.flickrwidget.model.FlickrImage;
+import com.hetangshah.flickrwidget.model.FlickrImageList;
 
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by hetashah on 2/24/16.
  */
-public class InstagramWidgetIntentService extends IntentService {
+public class FlickrWidgetIntentService extends IntentService {
 
-    public InstagramWidgetIntentService() {
-        super("InstagramWidgetIntentService");
+    public FlickrWidgetIntentService() {
+        super("FlickrWidgetIntentService");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        InstagramGetImageAPI apiCall = new InstagramGetImageAPI();
-        InstagramImageList instagramImageList = apiCall.execute();
-        updateWidget(this, instagramImageList);
+        FlickrGetImageAPI apiCall = new FlickrGetImageAPI();
+        FlickrImageList flickrImageList = apiCall.execute();
+        updateWidget(this, flickrImageList);
     }
 
-    private static void updateWidget(Context context, InstagramImageList data) {
+    private static void updateWidget(Context context, FlickrImageList data) {
 
-        ComponentName widget = new ComponentName(context, InstagramAppWidgetProvider.class);
+        ComponentName widget = new ComponentName(context, FlickrAppWidgetProvider.class);
         AppWidgetManager manager = AppWidgetManager.getInstance(context);
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.instagram_widget);
         if (data != null && data.getData() != null && !data.getData().isEmpty()) {
-            InstagramImage instagramImageModel = data.getData().get(0);
+            FlickrImage flickrImageModel = data.getData().get(0);
             hideEmptyView(views);
-            views.setTextViewText(R.id.tvItemTitle, instagramImageModel.getCaption().getText());
-            String imageUrl = instagramImageModel.getImages().getStandard_resolution() != null ?
-                    instagramImageModel.getImages().getStandard_resolution().getUrl() :
-                    instagramImageModel.getImages().getLow_resolution() != null ?
-                            instagramImageModel.getImages().getLow_resolution().getUrl() : null;
+            views.setTextViewText(R.id.tvItemTitle, flickrImageModel.getCaption().getText());
+            String imageUrl = flickrImageModel.getImages().getStandard_resolution() != null ?
+                    flickrImageModel.getImages().getStandard_resolution().getUrl() :
+                    flickrImageModel.getImages().getLow_resolution() != null ?
+                            flickrImageModel.getImages().getLow_resolution().getUrl() : null;
 
             if(!StringUtils.isEmpty(imageUrl)) {
                 AppWidgetTarget mAppWidgetTarget = new AppWidgetTarget(context, views, R.id.itemImage,
@@ -62,9 +62,9 @@ public class InstagramWidgetIntentService extends IntentService {
                         .fitCenter()
                         .into(mAppWidgetTarget);
             }
-            Intent intent = new Intent(context, InstagramActivity.class);
+            Intent intent = new Intent(context, FlickrActivity.class);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widget);  // Identifies the particular widget...
-            //intent.putExtra(InstagramActivity.EXTRA_ITEM_INFO_KEY, data);
+            //intent.putExtra(FlickrActivity.EXTRA_ITEM_INFO_KEY, data);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             // Make the pending intent unique...
             intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));

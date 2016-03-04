@@ -1,4 +1,4 @@
-package com.hetangshah.instagramwidget.widget;
+package com.hetangshah.flickrwidget.widget;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -16,14 +16,14 @@ public class WidgetUtil {
         long intervalMillis = Integer.parseInt(interval)*60*1000;
 
         AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, InstagramWidgetIntentReceiver.class);
+        Intent intent = new Intent(context, FlickrWidgetIntentReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, 0);
         am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 100 * 3, intervalMillis, pi);
     }
 
     private static PendingIntent getAlarmIntent(Context context) {
-        Intent intent = new Intent(context, InstagramAppWidgetProvider.class);
-        intent.setAction(InstagramAppWidgetProvider.ACTION_UPDATE);
+        Intent intent = new Intent(context, FlickrAppWidgetProvider.class);
+        intent.setAction(FlickrAppWidgetProvider.ACTION_UPDATE);
         PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, 0);
         return pi;
     }

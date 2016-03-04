@@ -1,8 +1,8 @@
-package com.hetangshah.instagramwidget.manager;
+package com.hetangshah.flickrwidget.manager;
 
 import android.os.AsyncTask;
 
-import com.hetangshah.instagramwidget.api.APIDetails;
+import com.hetangshah.flickrwidget.api.APIDetails;
 
 import java.util.HashMap;
 import java.util.Map;
